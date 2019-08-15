@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Use correct character set. -->
+        <meta charset="utf-8">
+        <!-- Tell IE to use the latest, best version. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>News Globe</title>
+        <!-- Cesium -->
+        <script src="https://cesiumjs.org/releases/1.52/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesiumjs.org/releases/1.52/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- Paco Gzip -->
+        <script type="text/javascript" src="js/pako.js"></script>
+        <!-- noUIslider -->
+        <link href="js/slider/nouislider.min.css" rel="stylesheet">
+        <!-- bigSlide -->
+        <script src="js/bigslide/bigSlide.js"></script>
+        <!--switchery -->
+        <link rel="stylesheet" href="js/switchery/switchery.css" />
+        <script src="js/switchery/switchery.js"></script>
+        <!--rainbowvis -->
+        <script src="js/rainbowvis.js">
+        </script>
+        <!-- Pretty checkbox -->
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" />
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112956687-2');
+        </script>
+        <style>
+        html,
+        body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: #000;
+        font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        color: #9aa6af;
+        text-rendering: optimizelegibility;
+        }
+        a {
+        text-decoration: none;
+        }
+        nav {
+        width: 93%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin: 0;
+        background-color: #1d2d35;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        }
+        nav ul {
+        height: 100%;
+        overflow-y: auto;
+        padding-left: 0;
+        margin-top: 0;
+        }
+        nav li {
+        float: left;
+        display: inline-block;
+        width: 100%;
+        }
+        nav li a {
+        letter-spacing: 3px;
+        font-size: 14px;
+        display: block;
+        color: #9aa6af;
+        padding: 10px 15px;
+        }
+        nav li a.active {
+        color: #fff;
+        background-color: #141e23;
+        }
+        nav li a:hover {
+        color: #fff;
+        background-color: #19252c;
+        }
+        nav li:first-child a.active,
+        nav li:first-child a:hover {
+        border-radius: 0 0 0 0;
+        }
+        #cesiumContainer {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        color: #edffff;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 1;
+        }
+        #push-container {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        color: #edffff;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        }
+        #slider {
+        position: relative;
+        height: 12px;
+        margin-right: 20px;
+        margin-left: 20px;
+        bottom: 0px;
+        z-index: 2;
+        }
+        #menu-button-container {
+        background-color: transparent;
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        left: 13px;
+        top: 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        z-index: 1;
+        }
+        #menu-button-container a {
+        color: white;
+        font-size: 50px;
+        }
+        #bodyContainer {
+        height: 97%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        /*overflow:scroll;*/
+        }
+        .containerLink {
+        font-style: normal;
+        font-family: "Verdana", "verdana", "arial";
+        text-decoration: none;
+        }
+        .containerTitle {
+        font-weight: bold;
+        font-style: normal;
+        font-family: "Verdana", "verdana", "arial";
+        text-decoration: none;
+        margin: 0px;
+        }
+        div.cesium-viewer {
+        position: absolute;
+        }
+        .wrap {
+        position: relative;
+        }
+        #news_globe_title {
+        color: white;
+        font-size: 20px;
+        font-family: arial;
+        font-weight: bold;
+        margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        }
+        #ng_subtitle {
+        font-size: 10px;
+        font-weight: normal;
+        font-family: cursive;
+        font-style: italic;
+        margin-left: 5px;
+        }
+        label {
+        cursor: pointer;
+        }
+        label:hover span {
+        text-decoration: underline;
+        }
+        ul {
+        padding: 0px;
+        margin: 0px;
+        }
+        li a {
+        margin-top: 5px;
+        color: white;
+        display: block;
+        }
+        span {
+        margin-top: 0px;
+        color: white;
+        display: block;
+        }
+        span.Collapsable {
+        cursor: default;
+        }
+        .pretty {
+        margin: 13px;
+        }
+        .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /*Chrome and Opera*/
+        }
+        </style>
+    </head>
+    <body>
+        <div id="bodyContainer">
+            <nav id="menu" class="panel" role="navigation">
+                <div id="news_globe_title">News Globe.<span id="ng_subtitle">News on a 3D map of the earth.</span></div>
+                <ul>
+                    <li>
+                        <div class="pretty p-switch">
+                            <input type="checkbox" id="circles_checkbox" onclick="on_checkbox_click()"/>
+                            <div class="state p-danger" name="switch1">
+                                <label>Circles</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pretty p-switch">
+                            <input type="checkbox" id="cylinders_checkbox" onclick="on_checkbox_click()"/>
+                            <div class="state p-danger" name="switch1">
+                                <label>Cylinders</label>
+                            </div>
+                        </div>
+                    </li>
+                    <!--
+                    <li>
+                        <div class="pretty p-switch">
+                            <input type="checkbox" id="labels_checkbox" onclick="on_checkbox_click()"/>
+                            <div class="state p-danger" name="switch1">
+                                <label>Labels</label>
+                            </div>
+                        </div>
+                    </li>
+                    -->
+                    <li>
+                        <div class="pretty p-switch">
+                            <input type="checkbox" id="polylines_checkbox" onclick="on_checkbox_click()" checked/>
+                            <div class="state p-danger" name="switch1">
+                                <label>Bars</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="mailto:vez.storitve+newsglobe@gmail.com">Contact us!</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="push-container" class="wrap push">
+                <div id="cesiumContainer">
+                    <div id="menu-button-container">
+                        <a id="menu-button" href="#menu" class="menu-link">&equiv;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slider" class="push"></div>
+        <script src="js/slider/nouislider.min.js"></script>
+        <script src="js/wnumb/wNumb.js"></script>
+        <script src="news_globe.js"></script>
+        <script>
+        $(document).ready(function() {
+        $('.menu-link').bigSlide({easyClose:true});
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{ url_for('avoid') }}" method=post>
+<input type=text name=keyword><input type=submit value=keyword_submit>
+</form>
+<p>List of keywords to avoid:</p>
+{% for s in data %}
+<form action="{{ url_for('avoid') }}" method="post">
+  {{s}}<button type="submit" name="delete" value="{{loop.index-1}}|{{s}}">Delete</button>
+</form>
+<p>
+{% endfor %}
+{% endblock %}

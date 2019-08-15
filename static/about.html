@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>News Globe info page</title>
+    <meta name="News Globe info page" content="News Globe">
+
+    <style>
+        body {
+            background-color: black;
+        }
+        div {
+            color:white;
+        }
+        a {
+            color: skyblue;
+            text-decoration: none;
+        }
+        #title {
+            font-family: monospace;
+            font-size: 30px;
+            text-align: center;
+        }
+        #subtitle {
+            font-family: monospace;
+            font-size: 24px;
+            text-align: center;
+            color:darkgrey;
+        }
+        #infotext {
+            font-family: monospace;
+            font-style: italic;
+            text-align: center;
+            color:ghostwhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title">- About News Globe -</div>
+    <br>
+    <div id="subtitle">What is it?</div>
+    <br>
+    <div id="infotext">News Globe is a web application that displays world news on a 3D world map.</div>
+    <br>
+    <div id="subtitle">Who made it?</div>
+    <br>
+    <div id="infotext">A student from Slovenia in his free time. [<a href="mailto:vez.storitve@gmail.com?Subject=News Globe Feedback" target="_top">contact</a>]</div>
+    <br>
+    <div id="subtitle">How does it work?</div>
+    <br>
+    <div id="infotext">The app back-end (<a href="https://www.python.org/">Python</a>) is periodically scraping RSS feeds from major news sites (list), and then analysing the data using Natural Language Processing (<a href="https://spacy.io/">spaCy</a>). This information is then passed on to the front-end HTML,CSS,JS application, which relies on an open-source library for 3D mapping (<a href="https://cesiumjs.org/">CesiumJS</a>). It is refreshed every 15 minutes.</div>
+    <br>
+    <div id="subtitle">List of news sites</div>
+    <br>
+    <div id="infotext">
+        <a href="http://www.bbc.com">BBC</a>
+        <br>
+        <a href="https://www.reuters.com/">Reuters</a>
+        <br>
+        <a href="https://www.aljazeera.com/">Al Jazeera</a>
+        <br>
+        <a href="http://www.foxnews.com">Fox News</a>
+        <br>
+        <a href="http://news.yahoo.com">Yahoo</a>
+        <br>
+        <a href="http://cnn.com">CNN</a>
+        <br>
+        <a href="http://theguardian.com">The Guardian</a>
+        <br>
+        <a href="http://vice.com">Vice</a>
+        <br>
+        <a href="http://huffingtonpost.com">Huffington Post</a>
+        <br>
+        <a href="http://nytimes.com">New York times</a>
+        <br>
+        <a href="http://allafrica.com">AllAfrica</a>
+        <br>
+        <a href="http://openeurope.org.uk">OpenEurope</a>
+        <br>
+        <a href="http://www.balkaninsight.com/en/page/all-balkans-home">BalkanInsight</a>
+        <br>
+        <a href="http://www.rt.com">RT</a>
+        <br>
+        <a href="http://asiaone.com">AsiaOne</a>
+        <br>
+        <a href="http://www.worldaffairsjournal.org/">WorldAffairsJournal</a>
+        <br>
+        <a href="https://www.sbs.com.au/">SBS</a>
+        <br>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body {
+	background-color: #000;
+	
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #9aa6af;
+	text-rendering: optimizelegibility;
+}
+
+a {text-decoration: none;}
+
+nav {
+	position: absolute;
+	top: 0;
+	right: 5px;
+}
+nav li {
+	float: left;
+	
+	display: inline-block;
+}
+nav li a {
+	font-size: 11px;
+	color: #9aa6af;
+	padding: 24px 15px;
+	
+	display: block;
+}
+nav li a:hover {color: #000;}
+
+@media only screen {
+
+
+/*  Nav Drawer Layout  */
+nav {position: relative;}
+
+nav ul {
+	height: 100%;
+	overflow-y: auto;
+}
+nav li {
+	display: block;
+	float: none;
+}
+nav li a {
+	padding: 22px 25px;
+	letter-spacing: 3px;
+	font-size: 14px;
+}
+
+nav li a.active {
+	color: #fff;
+	background-color: #141e23;
+}
+nav li a:hover {
+	color: #fff;
+	background-color: #19252c;
+}
+nav li:first-child a.active,
+nav li:first-child a:hover 
+{border-radius: 0 0 0 0;}
+
+/* NAVIGATION ANNIMATION */
+nav {
+	width: 93%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	margin: 0;
+	background-color: #1d2d35;
+	border-radius: 5px;
+}

@@ -1,0 +1,17 @@
+itsdangerous
+newspaper
+flask
+peewee
+requests
+tqdm
+peewee
+newspaper3k
+feedparser
+bs4
+simplejson
+flask-recaptcha
+spacy
+cherrypy
+paste
+pytest
+deepdiff
