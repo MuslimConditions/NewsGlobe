@@ -1,5 +1,8 @@
 # News Globe
-Latest news. On a globe. 
+Latest news. On a globe.
+
+![alt text](https://i.ibb.co/86NBHrk/Screenshot-2019-08-15-at-21-16-46.png)
+
 
 ## About
 The purpose of the program is to display world news on a 3D map. News is gathered through RSS feeds, and the GUI is made using HTML/CSS/JS and can be used via any modern browser.
@@ -38,6 +41,7 @@ The main part of the program is made using the Python scripting language. At thi
 3. Navigate to index.html. News will be visible once they are downloaded.
 
 ## TODO
+- Add dates to titles of news articles
 - Documentation
 - Optimization
 - Computer Learning implementation of location search, themes search
