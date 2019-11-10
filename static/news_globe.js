@@ -2,7 +2,7 @@
 
 Cesium.Ion.defaultAccessToken = '';
 default_view_models = Cesium.createDefaultImageryProviderViewModels();
-selectedImagery = default_view_models[0];
+selectedImagery = default_view_models[15];
 var viewer = new Cesium.Viewer('cesiumContainer', {
         //baseLayerPicker:false,
         imageryProviderViewModels : default_view_models,
