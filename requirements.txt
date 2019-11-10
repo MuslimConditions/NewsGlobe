@@ -1,5 +1,4 @@
 itsdangerous
-newspaper
 flask
 peewee
 requests
